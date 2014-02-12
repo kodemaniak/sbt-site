@@ -3,6 +3,7 @@ package com.typesafe.sbt
 import sbt._
 import Keys._
 import site.{ JekyllSupport, PamfletSupport, Preview, SphinxSupport }
+import com.typesafe.sbt.site.AsciidoctorSupport
 
 
 object SbtSite extends Plugin {
@@ -53,6 +54,8 @@ object SbtSite extends Plugin {
       SphinxSupport.settings ++ Seq(addMappingsToSiteDir(mappings in SphinxSupport.Sphinx, alias))
     def pamfletSupport(alias: String = ""): Seq[Setting[_]] =
       PamfletSupport.settings ++ Seq(addMappingsToSiteDir(mappings in PamfletSupport.Pamflet, alias))
+    def asciidoctorSupport(alias: String = ""): Seq[Setting[_]] =
+      AsciidoctorSupport.settings ++ Seq(addMappingsToSiteDir(mappings in AsciidoctorSupport.Asciidoctor, alias))
 
     def publishSite(): SettingsDefinition = addArtifact(artifact in packageSite, packageSite)
   }

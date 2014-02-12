@@ -15,7 +15,7 @@ name := "sbt-site"
 
 organization := "com.typesafe.sbt"
 
-version := "0.7.2-SNAPSHOT"
+version := "0.7.2.csa-SNAPSHOT"
 
 resolvers += "sonatype-releases" at "https://oss.sonatype.org/service/local/repositories/releases/content/"
 
@@ -28,6 +28,8 @@ publishTo <<= (version) { v =>
 }
 
 libraryDependencies += "net.databinder" %% "unfiltered-jetty" % "0.6.8" 
+
+libraryDependencies += "org.asciidoctor" % "asciidoctor-java-integration" % "0.1.4"
 
 site.settings
 
